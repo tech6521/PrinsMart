@@ -41,10 +41,6 @@ public class HomeController {
 		return "SignIn";
 	}
 	
-	@RequestMapping("/Join")
-	public String Join(Model model) throws Exception {		
-		return "Join";
-	}
 	
 	@RequestMapping("/MyPage")
 	public String MyPage(Model model) throws Exception {		

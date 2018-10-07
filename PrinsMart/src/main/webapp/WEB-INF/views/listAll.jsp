@@ -20,7 +20,7 @@ table {
 <hr>
 <br>
 <br>
-<form name=frm1>
+<form name=frm1 method="post">
 <table align="center" border=1 bordercolor="pink" bordercolorlight=gray cellspacing="0" cellpadding="2">
 <tr bgcolor="#ececec" align="center">
 	<td colspan=2>PMart Mall 회원가입 </td>
@@ -105,7 +105,6 @@ table {
 <input type="submit" value="가입하기">
 
 </form>
-
 
 </body>
 </html>
