@@ -24,7 +24,7 @@ vertical-align: middle;}
 
 
 
-
+<form action="loginPost" method="post">
       <div class="centered bg-info">
       		<br>
       		<br>
@@ -33,18 +33,19 @@ vertical-align: middle;}
        		<br>
        		<br>
        		<br>
-       		<h4>아  이  디 : <input type="text" placeholder="아이디를입력하세요" maxlength="15"></h4>
-       		<h4>비밀번호 : <input type="text" placeholder="비밀번호를입력하세요" maxlength="15"></h4>
+       		아  이  디 : <input type="text" placeholder="아이디를입력하세요" maxlength="15" name="id"> <br>
+       		<input type="checkbox" name="userCookie"> 아이디 기억하기<br>
+       		비밀번호 : <input type="text" placeholder="비밀번호를입력하세요" maxlength="15" name="password">
        		<br>
        		<br>
        		<br>
-       		<input type="button" class="btn btn-primary" value="로그인하기"> &nbsp;&nbsp;&nbsp;
+       		<input type="submit" class="btn btn-primary" value="로그인하기"> &nbsp;&nbsp;&nbsp;
        		<input type="button" value="취소하기">
        		
        		
        		
       </div>
- 
+ </form>
 
 </body>
 </html>

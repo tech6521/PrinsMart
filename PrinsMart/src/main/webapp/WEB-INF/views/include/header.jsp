@@ -35,7 +35,7 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="SignIn" onclick="window.open('SignIn','name','resizable=no width=500 height=500');return false"> 로그인</a></li> 
+      	<li><a href="login" onclick="window.open('login','name','resizable=no width=500 height=500');return false"> 로그인</a></li> 
 		<li><a href="Join">회원가입 </a></li>
    		<li><a href="MyPage">마이페이지 </a></li>
    		<li><a href="#">장바구니 </a></li>

@@ -22,6 +22,17 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.prinsmart.web" />
+	<context:component-scan base-package="kr.prinsmart.controller" />
+	
+	<beans:bean id="loginInterceptor" class="kr.prinsmart.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors> 
+		<interceptor>
+			<mapping path="/loginPost" />
+			<beans:ref bean="loginInterceptor" />
+		</interceptor>		
+	</interceptors>	
+	
 	
 	
 	

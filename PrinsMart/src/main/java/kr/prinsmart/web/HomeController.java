@@ -36,10 +36,9 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/SignIn")
-	public String SignIn(Model model) throws Exception {		
-		return "SignIn";
-	}
+	
+	
+	
 	
 	
 	@RequestMapping("/MyPage")
