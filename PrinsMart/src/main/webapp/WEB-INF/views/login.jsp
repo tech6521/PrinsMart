@@ -1,23 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Prins Mall ·Î±×ÀÎ</title>
+<title>Prins Mall ë¡œê·¸ì¸</title>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>	
-
+<%@include file="include/header.jsp" %>
 <style>
 
 .centered { 
 display:table; 
 width:500px;
 height:500px; 
+margin-top:5%;
+margin-left:30%;
 text-align: center;
-vertical-align: middle;}
+}
 </style>
 </head>
 <body>
@@ -25,22 +27,22 @@ vertical-align: middle;}
 
 
 <form action="loginPost" method="post">
-      <div class="centered bg-info">
+      <div class="centered bg-info span4" >
       		<br>
       		<br>
       		<br>
-       		<h1 class="title">Prins Mall ·Î±×ÀÎ</h1>
+       		<h1 class="title">Prins Mart ë¡œê·¸ì¸</h1>
        		<br>
        		<br>
        		<br>
-       		¾Æ  ÀÌ  µğ : <input type="text" placeholder="¾ÆÀÌµğ¸¦ÀÔ·ÂÇÏ¼¼¿ä" maxlength="15" name="id"> <br>
-       		<input type="checkbox" name="userCookie"> ¾ÆÀÌµğ ±â¾ïÇÏ±â<br>
-       		ºñ¹Ğ¹øÈ£ : <input type="text" placeholder="ºñ¹Ğ¹øÈ£¸¦ÀÔ·ÂÇÏ¼¼¿ä" maxlength="15" name="password">
+       		ì•„  ì´  ë”” : <input type="text" placeholder="ì•„ì´ë””ë¥¼ì…ë ¥í•˜ì„¸ìš”" maxlength="15" name="id"> <br>
+       		<input type="checkbox" name="userCookie"> ì•„ì´ë”” ê¸°ì–µí•˜ê¸°<br>
+       		ë¹„ë°€ë²ˆí˜¸ : <input type="text" placeholder="ë¹„ë°€ë²ˆí˜¸ë¥¼ì…ë ¥í•˜ì„¸ìš”" maxlength="15" name="password">
        		<br>
        		<br>
        		<br>
-       		<input type="submit" class="btn btn-primary" value="·Î±×ÀÎÇÏ±â"> &nbsp;&nbsp;&nbsp;
-       		<input type="button" value="Ãë¼ÒÇÏ±â">
+       		<input type="submit" class="btn btn-primary" value="ë¡œê·¸ì¸í•˜ê¸°"> &nbsp;&nbsp;&nbsp;
+       		<input type="button" value="ì·¨ì†Œí•˜ê¸°">
        		
        		
        		

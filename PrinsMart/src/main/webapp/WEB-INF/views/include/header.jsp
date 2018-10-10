@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
  <html>
  <style>
  .Main-banner{
@@ -35,9 +36,14 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      	<li><a href="login" onclick="window.open('login','name','resizable=no width=500 height=500');return false"> 로그인</a></li> 
+       <c:if test="${empty login}">  
+      	<li><a href="login"> 로그인</a></li> 
 		<li><a href="Join">회원가입 </a></li>
+	 </c:if> 
+	 <c:if test="${!empty login}">
+	 	<li><a href="/"> 로그아웃</a></li> 
    		<li><a href="MyPage">마이페이지 </a></li>
+   	</c:if> 
    		<li><a href="#">장바구니 </a></li>
    		<li><a href="ServiceCenter">고객센터 </a></li>
       </ul>

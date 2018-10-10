@@ -24,14 +24,33 @@
 	<context:component-scan base-package="kr.prinsmart.web" />
 	<context:component-scan base-package="kr.prinsmart.controller" />
 	
+	
+	<beans:bean id="authInterceptor" class="kr.prinsmart.interceptor.AuthInterceptor"></beans:bean>
 	<beans:bean id="loginInterceptor" class="kr.prinsmart.interceptor.LoginInterceptor"></beans:bean>
+	
+	
 	
 	<interceptors> 
 		<interceptor>
 			<mapping path="/loginPost" />
 			<beans:ref bean="loginInterceptor" />
-		</interceptor>		
+		</interceptor>	
+		
+		
+		<interceptor>
+			<mapping path="/MyPage"/>
+			<mapping path="/ServiceCenter"/>
+						 
+			<beans:ref bean="authInterceptor"/>
+		</interceptor>
+			
 	</interceptors>	
+	
+	
+			
+	
+	
+	
 	
 	
 	

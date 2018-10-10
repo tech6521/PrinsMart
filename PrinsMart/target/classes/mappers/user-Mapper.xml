@@ -10,7 +10,7 @@ values(#{id},#{password}, #{name},#{email},#{phone}, #{address})
 
  </insert>
  
-<select id="login">
+<select id="login" resultType="kr.prinsmart.domain.UserVO">
 	select id, password from user where id = #{id} and password = #{password}
 
 </select>
