@@ -37,7 +37,7 @@ text-align: center;
        		<br>
        		아  이  디 : <input type="text" placeholder="아이디를입력하세요" maxlength="15" name="id"> <br>
        		<input type="checkbox" name="userCookie"> 아이디 기억하기<br>
-       		비밀번호 : <input type="text" placeholder="비밀번호를입력하세요" maxlength="15" name="password">
+       		비밀번호 : <input type="password" placeholder="비밀번호를입력하세요" maxlength="15" name="password">
        		<br>
        		<br>
        		<br>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <html>
 <head>
@@ -48,12 +48,13 @@
           	<li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리 보기<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">메뉴1</a></li>
-                <li><a href="#">메뉴2</a></li>
-                <li><a href="#">메뉴3</a></li>
-            	<li><a href="#">메뉴4</a></li>
-                <li><a href="#">메뉴5</a></li>
+                <li><a href="#">과일</a></li>
+                <li><a href="#">채소</a></li>
+                <li><a href="#">과자/음료수</a></li>
+            	<li><a href="#">주방용품</a></li>
+                <li><a href="#">기타</a></li>
               </ul>
+              
             </li>
             <li><a href="#">세일목록</a></li>
             <li><a href="#about">인기상품</a></li>
@@ -66,11 +67,19 @@
       </div>
    </nav>
    
-   
+<form action="PDAll"> 
 <div class="container resizable" style="float:right;">
-<input type="text" placeholder="검색어를 입력하세요" style="width: 300px;height: 35px; text-align: center;">
+<select style="width: 100px;height: 35px; text-align: center;">
+<option> 전체보기</option>
+<option>과자</option>
+<option>야채</option>
+<option>육류</option>
+<option>생활제품</option>
+</select>
+<input type="text"  value='' placeholder="검색어를 입력하세요" style="width: 300px;height: 35px; text-align: center;">
 <button type="submit" class="btn btn-primary">검색</button>
 </div>
+</form> 
 
 
 

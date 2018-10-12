@@ -15,5 +15,11 @@ values(#{id},#{password}, #{name},#{email},#{phone}, #{address})
 
 </select>
 
+<select id="list" resultType="kr.prinsmart.domain.ProductVO">
+	select idx, product_code, product_name, product_address, product_date, product_price
+	from product
+
+</select>
+
 </mapper>
 

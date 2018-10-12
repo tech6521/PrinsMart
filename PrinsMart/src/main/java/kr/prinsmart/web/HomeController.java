@@ -38,7 +38,10 @@ public class HomeController {
 	
 	
 	
-	
+	@RequestMapping("/ProductInsert")
+	public String ProductInsert(Model model) throws Exception {		
+		return "ProductInsert";
+	}
 	
 	
 	@RequestMapping("/MyPage")
@@ -50,5 +53,7 @@ public class HomeController {
 	public String ServiceCenter(Model model) throws Exception {		
 		return "ServiceCenter";
 	}
+	
+	
 	
 }

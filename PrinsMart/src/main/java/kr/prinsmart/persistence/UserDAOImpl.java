@@ -1,10 +1,13 @@
 package kr.prinsmart.persistence;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import kr.prinsmart.domain.ProductVO;
 import kr.prinsmart.domain.UserVO;
 import kr.prinsmart.dto.LoginDTO;
 
@@ -15,11 +18,15 @@ import kr.prinsmart.dto.LoginDTO;
 public class UserDAOImpl implements UserDAO {
 	
 	
+	
+	
+	private static String namespace = "kr.prinsmart.mapper.UserMapper";
+	
+	
+	
 	@Inject
 	private SqlSession session;
 	
-	private static String namespace = "kr.prinsmart.mapper.UserMapper";
-
 	@Override
 	public void create(UserVO vo) throws Exception {
 		session.insert(namespace+".create", vo);
@@ -31,6 +38,13 @@ public class UserDAOImpl implements UserDAO {
 		
 		return session.selectOne(namespace + ".login", dto);
 	}
+
+	@Override
+	public List<ProductVO> list() throws Exception {
+		return session.selectList(namespace + ".list");
+	}
+
+	
 
 	
 	

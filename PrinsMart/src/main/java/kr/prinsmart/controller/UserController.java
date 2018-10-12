@@ -1,5 +1,7 @@
 package kr.prinsmart.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import kr.prinsmart.domain.ProductVO;
 import kr.prinsmart.domain.UserVO;
 import kr.prinsmart.dto.LoginDTO;
 import kr.prinsmart.service.UserService;
@@ -31,9 +34,9 @@ public class UserController {
 
 	  public String registPOST(@ModelAttribute UserVO user) throws Exception { // 인자값으로 REDIRECT 사용 
 
-		service.regist(user); // 글작성 서비스 호출
+		service.regist(user); 
 
-	    	   return "redirect:/"; // 작성이 완료된 후, 목록페이지로 리턴
+	    	   return "redirect:/"; 
 
 	}
 	
@@ -52,6 +55,14 @@ public class UserController {
 		}
 		
 		model.addAttribute("userVO", vo);
+	}
+	
+	@RequestMapping("/PDAll")
+	public void PDFruit(Model model) throws Exception {	
+		
+		List<ProductVO> list = service.list();
+		
+		model.addAttribute("list", list);
 	}
 	
 	
