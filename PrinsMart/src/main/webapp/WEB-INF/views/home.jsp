@@ -67,7 +67,7 @@
       </div>
    </nav>
    
-<form action="PDAll"> 
+<form action="productList"> 
 <div class="container resizable" style="float:right;">
 <select style="width: 100px;height: 35px; text-align: center;">
 <option> 전체보기</option>

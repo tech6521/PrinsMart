@@ -1,6 +1,6 @@
 package kr.prinsmart.controller;
 
-import java.util.List;
+
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.prinsmart.domain.ProductVO;
+
 import kr.prinsmart.domain.UserVO;
 import kr.prinsmart.dto.LoginDTO;
 import kr.prinsmart.service.UserService;
@@ -57,13 +57,7 @@ public class UserController {
 		model.addAttribute("userVO", vo);
 	}
 	
-	@RequestMapping("/PDAll")
-	public void PDFruit(Model model) throws Exception {	
-		
-		List<ProductVO> list = service.list();
-		
-		model.addAttribute("list", list);
-	}
+	
 	
 	
 	

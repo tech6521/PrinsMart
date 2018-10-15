@@ -1,59 +1,57 @@
 package kr.prinsmart.domain;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class ProductVO {
-	
-	private int idx;
-	private String product_code;
-	private String product_name;
-	private String product_address;
-	private String product_date;
-	private String product_price;
-	public int getIdx() {
-		return idx;
+    private int productId; // 상품번호
+    private String productName; // 상품이름
+    private int productPrice; // 상품가격
+    private String productDesc; // 상품 상세정보
+    private String productUrl; // 상품이미지 경로
+    private MultipartFile productPhoto; // 상품이미지파일
+	public int getProductId() {
+		return productId;
 	}
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setProductId(int productId) {
+		this.productId = productId;
 	}
-	public String getProduct_code() {
-		return product_code;
+	public String getProductName() {
+		return productName;
 	}
-	public void setProduct_code(String product_code) {
-		this.product_code = product_code;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public String getProduct_name() {
-		return product_name;
+	public int getProductPrice() {
+		return productPrice;
 	}
-	public void setProduct_name(String product_name) {
-		this.product_name = product_name;
+	public void setProductPrice(int productPrice) {
+		this.productPrice = productPrice;
 	}
-	public String getProduct_address() {
-		return product_address;
+	public String getProductDesc() {
+		return productDesc;
 	}
-	public void setProduct_address(String product_address) {
-		this.product_address = product_address;
+	public void setProductDesc(String productDesc) {
+		this.productDesc = productDesc;
 	}
-	public String getProduct_date() {
-		return product_date;
+	public String getProductUrl() {
+		return productUrl;
 	}
-	public void setProduct_date(String product_date) {
-		this.product_date = product_date;
+	public void setProductUrl(String productUrl) {
+		this.productUrl = productUrl;
 	}
-	public String getProduct_price() {
-		return product_price;
+	public MultipartFile getProductPhoto() {
+		return productPhoto;
 	}
-	public void setProduct_price(String product_price) {
-		this.product_price = product_price;
+	public void setProductPhoto(MultipartFile productPhoto) {
+		this.productPhoto = productPhoto;
 	}
 	@Override
 	public String toString() {
-		return "ProductVO [idx=" + idx + ", product_code=" + product_code + ", product_name=" + product_name
-				+ ", product_address=" + product_address + ", product_date=" + product_date + ", product_price="
-				+ product_price + "]";
+		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
+				+ ", productDesc=" + productDesc + ", productUrl=" + productUrl + ", productPhoto=" + productPhoto
+				+ "]";
 	}
-	
-	
-	
-	
-	
-
+   
+    
+    
 }
