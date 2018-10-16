@@ -23,5 +23,17 @@ import kr.prinsmart.domain.ProductVO;
 
 	}
 
+		@Override
+		public ProductVO detailProduct(int productId) {
+			
+			return sqlSession.selectOne("product.detailProduct", productId);
+		}
+
+		@Override
+		public List<ProductVO> selectProduct(int categoryId) {
+			
+			return sqlSession.selectList("product.selectProduct", categoryId);
+		}
+
 
 }

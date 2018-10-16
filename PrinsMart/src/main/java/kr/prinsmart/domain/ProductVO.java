@@ -9,6 +9,17 @@ public class ProductVO {
     private String productDesc; // 상품 상세정보
     private String productUrl; // 상품이미지 경로
     private MultipartFile productPhoto; // 상품이미지파일
+    private int categoryId;
+    
+    
+    
+    
+	public int getCategoryId() {
+		return categoryId;
+	}
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
+	}
 	public int getProductId() {
 		return productId;
 	}
@@ -49,8 +60,9 @@ public class ProductVO {
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
 				+ ", productDesc=" + productDesc + ", productUrl=" + productUrl + ", productPhoto=" + productPhoto
-				+ "]";
+				+ ", categoryId=" + categoryId + "]";
 	}
+	
    
     
     

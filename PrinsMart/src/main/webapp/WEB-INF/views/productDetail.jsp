@@ -15,7 +15,9 @@
 
 <%@ include file="./include/header.jsp" %>
 
-<hr style="border: 1px solid red;">
+<%@include file="include/nav.jsp" %>
+
+<hr style="border: 2px solid red;">
 </head>
 <body>
 
@@ -50,7 +52,7 @@
                                 </select>&nbsp;개
                                 <input type="submit" value="장바구니에 담기">
                             </form>
-                            <a href="${path}productList">상품목록</a>
+                            <a href="productList">상품목록</a>
                         </td>
                     </tr>
                 </table>

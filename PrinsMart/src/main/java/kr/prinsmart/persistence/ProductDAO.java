@@ -8,4 +8,8 @@ public interface ProductDAO {
 	
 	
 	public List<ProductVO> listProduct();
+	
+	public ProductVO detailProduct(int productId);
+	
+	public List<ProductVO> selectProduct(int categoryId);
 }

@@ -12,17 +12,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>	
 
-<style>
-table {
-	float: right;
-}
-p {
-	font-size:20px;
-	margin-top: 2%;
-	margin-left: 5%;
-}
-
-</style>
 
 <%@ include file="./include/header.jsp" %>
 
@@ -32,30 +21,22 @@ p {
 
 </head>
 <body>
-	<p>홈 > <b>상품 전체 목록</b></p>
-    <h2 align="center">상품 전체목록</h2>
+	
+    <h2 align="center">상품 목록</h2>
     <br>
     <br>
-    <div>
-    <div>
-    	
-    </div>
-    <div>
-    <table border=1 style="width: 1200px;font-size: 20px;border-color: #FAFAFA;" class= "table table-hover text-info text-center">
-        <tr>
-            <th class="text-center">상품ID번호</th>
-            <th class="text-center">상품이미지</th>
-            <th class="text-center">상품명</th>
-            <th class="text-center">가격</th>
-            <th class="text-center">상세설명</th>
+    <table border="1" style="width: 1200px;text-align: center;font-size: 20px;">
+        <tr style="text-align: center;">
+            <th>상품ID번호</th>
+            <th>상품이미지</th>
+            <th>상품명</th>
+            <th>가격</th>
+            <th>상세설명</th>
         </tr>
         <c:forEach var="row" items="${list}">
         <tr>
-            <td class="text-center">
-            <br>
-            <br>
+            <td>
                 ${row.productId}
-                
             </td>
             <td>
                 <a href="${path}/detail/${row.productId}">
@@ -63,19 +44,13 @@ p {
                 </a>
             </td>
             <td>
-            <br>
-            <br>
                 <a href="${path}/detail/${row.productId}">${row.productName}</a>
             </td>
             <td>
-            <br>
-            <br>
                 <fmt:formatNumber value="${row.productPrice}" pattern="###,###,###" />
             </td>
             
             <td style="width: 500px;">
-            <br>
-            <br>
                 ${row.productDesc}
             </td>
             
@@ -83,8 +58,5 @@ p {
         </tr>
         </c:forEach>
     </table>
-   </div>
-   </div>
-   
 </body>
 </html>
