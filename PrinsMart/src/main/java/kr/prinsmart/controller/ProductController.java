@@ -21,7 +21,7 @@ public class ProductController {
     // 1. 상품 전체 목록
     @RequestMapping("/productList")
     public ModelAndView list(ModelAndView mav) {
-        mav.setViewName("productList");
+        mav.setViewName("producList");
         mav.addObject("list", productService.listProduct());
         return mav;
     }
