@@ -18,14 +18,14 @@ import kr.prinsmart.dto.LoginDTO;
 public class UserDAOImpl implements UserDAO {
 	
 	
-	
+	@Inject
+	private SqlSession session;
 	
 	private static String namespace = "kr.prinsmart.mapper.UserMapper";
 	
 	
 	
-	@Inject
-	private SqlSession session;
+	
 	
 	@Override
 	public void create(UserVO vo) throws Exception {

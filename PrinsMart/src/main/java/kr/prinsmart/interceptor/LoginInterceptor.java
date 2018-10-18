@@ -30,20 +30,22 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     ModelMap modelMap = modelAndView.getModelMap();
     Object userVO = modelMap.get("userVO");
     
-    if (request.getParameter("useCookie") != null) {
-        Cookie loginCookie = new Cookie("loginCookie", session.getId());
-        loginCookie.setPath("/");
-        loginCookie.setMaxAge(60 * 60 * 24 * 7); //...1week.
-        logger.info("remember me :: loginCookie : "+loginCookie.toString());
-        //...659p.만들어진 쿠기는 반드시 HttpServletResponse에 담아서 전송됨.
-        response.addCookie(loginCookie);
-      }
-    
-
+   
     if (userVO != null) {
 
       logger.info("new login success");
       session.setAttribute(LOGIN, userVO);
+      
+      
+      if (request.getParameter("useCookie") != null) {
+          Cookie loginCookie = new Cookie("loginCookie", session.getId());
+          loginCookie.setPath("/");
+          loginCookie.setMaxAge(60 * 60 * 24 * 7); //...1week.
+          logger.info("remember me :: loginCookie : "+loginCookie.toString());
+          //...659p.만들어진 쿠기는 반드시 HttpServletResponse에 담아서 전송됨.
+          response.addCookie(loginCookie);
+        }
+      
       //response.sendRedirect("/");
       Object dest = session.getAttribute("dest");
       
@@ -54,8 +56,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-
-    HttpSession session = request.getSession();
+	  HttpSession session = request.getSession();
 
     if (session.getAttribute(LOGIN) != null) {
       logger.info("clear login data before");

@@ -35,18 +35,23 @@
      
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
+    	
       <ul class="nav navbar-nav navbar-right">
-       <c:if test="${empty login}">  
+       <c:if test="${empty login}">
+       	<h4 align="right">지금 로그인 하세요</h4>
       	<li><a href="login"> 로그인</a></li> 
 		<li><a href="Join">회원가입 </a></li>
 	 </c:if> 
 	 <c:if test="${!empty login}">
-	 	<li><a href="/"> 로그아웃</a></li> 
+	 	<h4 align="right"><b>${login.id}</b>님 환영합니다.</h4>  
+	 	<li><a href="/logout"> 로그아웃</a></li> 
+	 	
    		<li><a href="MyPage">마이페이지 </a></li>
    	</c:if> 
    		<li><a href="#">장바구니 </a></li>
    		<li><a href="ServiceCenter">고객센터 </a></li>
       </ul>
+      
     </div>
   </div>
 </nav>

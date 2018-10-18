@@ -1,25 +1,13 @@
 package kr.prinsmart.domain;
 
-import org.springframework.web.multipart.MultipartFile;
+
 
 public class ProductVO {
-    private int productId; // 상품번호
-    private String productName; // 상품이름
-    private int productPrice; // 상품가격
-    private String productDesc; // 상품 상세정보
-    private String productUrl; // 상품이미지 경로
-    private MultipartFile productPhoto; // 상품이미지파일
-    private int categoryId;
-    
-    
-    
-    
-	public int getCategoryId() {
-		return categoryId;
-	}
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
+	private int productId;
+	private String productName;
+	private int productPrice;
+	private String productDesc;
+	private String productUrl;
 	public int getProductId() {
 		return productId;
 	}
@@ -50,20 +38,14 @@ public class ProductVO {
 	public void setProductUrl(String productUrl) {
 		this.productUrl = productUrl;
 	}
-	public MultipartFile getProductPhoto() {
-		return productPhoto;
-	}
-	public void setProductPhoto(MultipartFile productPhoto) {
-		this.productPhoto = productPhoto;
-	}
 	@Override
 	public String toString() {
 		return "ProductVO [productId=" + productId + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", productDesc=" + productDesc + ", productUrl=" + productUrl + ", productPhoto=" + productPhoto
-				+ ", categoryId=" + categoryId + "]";
+				+ ", productDesc=" + productDesc + ", productUrl=" + productUrl + "]";
 	}
 	
-   
-    
-    
+	
+	
+	
+
 }

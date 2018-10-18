@@ -17,6 +17,9 @@
  }
 </style>
 
+
+
+
 </head>
 <body>
 <nav class="navbar navbar-default">
@@ -33,7 +36,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav ab">
           	<li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리 보기<span class="caret"></span></a>
+              <a href="#" onmouseover="mover()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리 보기<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="${path}/selectListProduct?categoryid=1">과일</a></li>
                 <li><a href="${path}/selectListProduct?categoryid=2">채소</a></li>
@@ -41,6 +44,8 @@
             	<li><a href="${path}/selectListProduct?categoryid=4">주방용품</a></li>
                 <li><a href="${path}/selectListProduct?categoryid=5">기타</a></li>
               </ul>
+              
+             
               
             </li>
             <li><a href="#">세일목록</a></li>
@@ -53,5 +58,8 @@
         </div><!--/.nav-collapse -->
       </div>
    </nav>
+   
+   
+   
 </body>
 </html>

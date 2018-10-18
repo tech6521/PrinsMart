@@ -35,16 +35,17 @@
 			<mapping path="/loginPost" />
 			<beans:ref bean="loginInterceptor" />
 		</interceptor>	
-		
-		
+	
 		<interceptor>
-			<mapping path="/MyPage"/>
+			<mapping path="/Mypage"/>
 			<mapping path="/ServiceCenter"/>
-						 
 			<beans:ref bean="authInterceptor"/>
+		
 		</interceptor>
-			
+	
 	</interceptors>	
+	
+	
 	
 	
 <!-- mapping : 가상 경로(상대경로), location : 리소스가 실제로 저장된 경로 -->

@@ -1,7 +1,6 @@
 package kr.prinsmart.interceptor;
 
-import javax.inject.Inject;
-import javax.servlet.http.Cookie;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,16 +9,13 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
-import org.springframework.web.util.WebUtils;
 
-import kr.prinsmart.service.UserService;
 
 public class AuthInterceptor extends HandlerInterceptorAdapter {
 
   private static final Logger logger = LoggerFactory.getLogger(AuthInterceptor.class);
   
-  @Inject
-  private UserService service;
+
   
   private void saveDest(HttpServletRequest req) {
 

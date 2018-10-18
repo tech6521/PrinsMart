@@ -52,12 +52,14 @@ public class HomeController {
 	
 	
 	@RequestMapping("/MyPage")
-	public String MyPage(Model model) throws Exception {		
+	public String MyPage(@ModelAttribute UserVO user, Model model) throws Exception {		
 		return "MyPage";
 	}
 	
 	@RequestMapping("/ServiceCenter")
-	public String ServiceCenter(Model model) throws Exception {		
+	public String ServiceCenter(@ModelAttribute UserVO user, Model model) throws Exception {		
+		
+		model.addAttribute(user);
 		return "ServiceCenter";
 	}
 	

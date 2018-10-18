@@ -3,6 +3,9 @@ package kr.prinsmart.controller;
 
 
 import javax.inject.Inject;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -10,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.util.WebUtils;
 
 import kr.prinsmart.domain.UserVO;
 import kr.prinsmart.dto.LoginDTO;
@@ -40,7 +43,7 @@ public class UserController {
 
 	}
 	
-	@RequestMapping("/login")
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public void loginGet(@ModelAttribute("dto") LoginDTO dto) throws Exception {		
 		
 	}
@@ -57,12 +60,28 @@ public class UserController {
 		model.addAttribute("userVO", vo);
 	}
 	
-	
-	
-	
-	
-	
-	
-
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {		
+		Object obj = session.getAttribute("login");
+		
+		if (obj != null) {
+				UserVO vo = (UserVO) obj;
+				
+				session.removeAttribute("login");
+				session.invalidate();
+				
+				Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+				
+				if (loginCookie != null) {
+					loginCookie.setPath("/");
+					loginCookie.setMaxAge(0);
+					response.addCookie(loginCookie);
+					
+				}
+		}
+		
+		return "redirect:/";
+		
+	}
 }
 

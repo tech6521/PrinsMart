@@ -6,7 +6,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%> 
-<%@ page session="false" %>
+
 <html lang="ko">
 <head>
 <title>Prins Mall 고객센터</title>
@@ -28,6 +28,8 @@
 <br>
 <hr class="MyPageLine">
 <p> &nbsp; &nbsp; &nbsp;  홈 > <b>고객센터</b></p>
+<p>${login.id}</p>
+<input type="button" value='${login.id}' name='${login.id}'>
 
 </body>
 </html>
