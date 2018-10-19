@@ -38,11 +38,11 @@
           	<li class="dropdown">
               <a href="#" onmouseover="mover()" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">카테고리 보기<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="${path}/selectListProduct?categoryid=1">과일</a></li>
-                <li><a href="${path}/selectListProduct?categoryid=2">채소</a></li>
-                <li><a href="${path}/selectListProduct?categoryid=3">과자/음료수</a></li>
-            	<li><a href="${path}/selectListProduct?categoryid=4">주방용품</a></li>
-                <li><a href="${path}/selectListProduct?categoryid=5">기타</a></li>
+                <li><a href="${path}/selectListProduct?category_id=1">과일</a></li>
+                <li><a href="${path}/selectListProduct?category_id=2">채소</a></li>
+                <li><a href="${path}/selectListProduct?category_id=3">과자/음료수</a></li>
+            	<li><a href="${path}/selectListProduct?category_id=4">주방용품</a></li>
+                <li><a href="${path}/selectListProduct?category_id=5">기타</a></li>
               </ul>
               
              
