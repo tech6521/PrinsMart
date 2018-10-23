@@ -2,43 +2,46 @@ package kr.prinsmart.controller;
 
 
 
-import java.util.List;
-
 import javax.inject.Inject;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.prinsmart.domain.ProductVO;
 
 import kr.prinsmart.service.ProductService;
 
  
-@Controller // 컨트롤러임을 명시
+@Controller 
 public class ProductController {
 	
-	@Inject   // 주입(심부름꾼) 명시
-	private ProductService service; // Service 호출을 위한 객체생성
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
+	
+	@Inject  
+	private ProductService service; 
 	
 	
-	@RequestMapping("/allProductList") 
-	public void allProductList(Model model) throws Exception {
 		
-		List<ProductVO> list = service.listProduct();
-		model.addAttribute("list", list);
+	@RequestMapping(value = "/allProductList", method=RequestMethod.GET) 
+	public void allProductList(Model model) throws Exception {
+		logger.info("show productall list.....");
+		
+		model.addAttribute("list", service.listProduct());
 		
 	}
 	
-	 @RequestMapping("/{product_id}")
-     public ModelAndView detail(@PathVariable int product_id, ModelAndView mav) throws Exception{
-         mav.setViewName("productDetail");
-         mav.addObject("vo", service.detailProduct(product_id));
-         return mav;
-         
+	
+	
+	@RequestMapping(value = "/productDetail",method=RequestMethod.GET)
+    public void detail(@RequestParam("product_id") int product_id, Model model) throws Exception{
+        
+		model.addAttribute("detail", service.detailProduct(product_id));
      }
 	 
 	 @RequestMapping("/selectListProduct")

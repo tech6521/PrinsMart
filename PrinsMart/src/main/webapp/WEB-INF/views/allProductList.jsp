@@ -49,34 +49,35 @@ p {
             <th class="text-center">가격</th>
             <th class="text-center">상세설명</th>
         </tr>
-        <c:forEach var="row" items="${list}">
+        <c:forEach var="detail" items="${list}">
         <tr>
             <td class="text-center">
             <br>
             <br>
-                ${row.product_id}
+                ${detail.product_id}
                 
             </td>
             <td>
-                <a href="${path}/detail/${row.product_id}">
-                    <img src="${path}/images/${row.product_url}" width="200px" height="150px">
+           
+                <a href="/productDetail?product_id=${detail.product_id}">
+                    <img src="${path}/images/${detail.product_url}" width="200px" height="150px">
                 </a>
             </td>
             <td>
             <br>
             <br>
-                <a href="${path}/detail/${row.product_id}">${row.product_name}</a>
+                <a href="/productDetail?product_id=${detail.product_id}">${detail.product_name}</a>
             </td>
             <td>
             <br>
             <br>
-                <fmt:formatNumber value="${row.product_price}" pattern="###,###,###" />
+                <fmt:formatNumber value="${detail.product_price}" pattern="###,###,###" />
             </td>
             
             <td style="width: 500px;">
             <br>
             <br>
-                ${row.product_desc}
+                ${detail.product_desc}
             </td>
             
             

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.prinsmart.mapper.CartMapper">
+
+<!-- 장바구니 추가 -->
+<insert id="insertCart">
+insert into cart(
+	user_id, amount, product_url, product_price, product_name
+	) values (
+	#{user_id},#{amount}, #{product_url}, #{product_price}, #{product_name}
+	)
+
+
+</insert>
+<!-- 장바구니 목록 -->
+<select id="listCart" resultType="kr.prinsmart.domain.CartVO">
+select *
+from cart
+where user_id = #{user_id} 
+</select>
+
+
+<!-- 장바구니 레코드 삭제 -->
+<delete id="deleteCart">
+delete from cart
+where cart_id = #{cart_id}
+
+</delete>
+
+
+</mapper>

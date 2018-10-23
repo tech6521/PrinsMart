@@ -48,7 +48,9 @@
 	 	
    		<li><a href="MyPage">마이페이지 </a></li>
    	</c:if> 
-   		<li><a href="#">장바구니 </a></li>
+   		<li><a href="/listCart?user_id=${login.id}">장바구니 </a>
+   		
+   		</li>
    		<li><a href="ServiceCenter">고객센터 </a></li>
       </ul>
       

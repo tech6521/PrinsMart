@@ -16,47 +16,57 @@
 <%@ include file="./include/header.jsp" %>
 
 <%@include file="include/nav.jsp" %>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 
 <hr style="border: 2px solid red;">
-
+<title>장바구니</title>
 </head>
 <body>
-	
-    <h2 align="center">상품 목록</h2>
+
+ <h2 align="center"> ${login.id}님의 장바구니</h2>
     <br>
     <br>
     <table border="1" style="width: 1200px;text-align: center;font-size: 20px;">
+    	
         <tr style="text-align: center;">
-            <th>상품ID번호</th>
+        	<th>카트ID</th>
+            <th>상품이름</th>
             <th>상품이미지</th>
-            <th>상품명</th>
             <th>가격</th>
-            <th>상세설명</th>
+            <th>갯수</th>
+             
         </tr>
-        <c:forEach var="row" items="${select}">
+        <c:forEach var="row" items="${list}">
         <tr>
-            <td>
-                ${row.product_id}
+        	<td>
+                ${row.cart_id}
+                
+            </td>
+        
+        	<td>
+                ${row.product_name}<br>
+                <form action="delete" method="POST">
+               		<button type="submit">삭제</button>
+                </form>
             </td>
             <td>
-                <a href="/productDetail?product_id=${row.product_id}">
-                    <img src="${path}/images/${row.product_url}" width="200px" height="150px">
-                </a>
+                <img src="${path}/images/${row.product_url}" width="200px" height="150px">
             </td>
             <td>
-                <a href="/productDetail?product_id=${row.product_id}">${row.product_name}</a>
+                 <fmt:formatNumber value="${row.product_price}" pattern="###,###,###" />
             </td>
             <td>
-                <fmt:formatNumber value="${row.product_price}" pattern="###,###,###" />
+                ${row.amount}
             </td>
             
-            <td style="width: 500px;">
-                ${row.product_desc}
-            </td>
-            
-            
-        </tr>
+          </tr>
+          
+          
+        
         </c:forEach>
     </table>
+    
+
+
 </body>
 </html>
