@@ -23,19 +23,25 @@
 </head>
 <body>
 
- <h2 align="center"> ${login.id}님의 장바구니</h2>
+ <h2 align="center"> ${login.id}님의 장바구니</h2> 
     <br>
     <br>
-    <table border="1" style="width: 1200px;text-align: center;font-size: 20px;">
+    
+    <div align="center">
+    <table border="1" style="width: 100%;text-align: center;font-size: 20px;">
     	
         <tr style="text-align: center;">
         	<th>카트ID</th>
             <th>상품이름</th>
             <th>상품이미지</th>
             <th>가격</th>
+            <th>전체 가격</th>
             <th>갯수</th>
              
         </tr>
+        
+        
+        
         <c:forEach var="row" items="${list}">
         <tr>
         	<td>
@@ -46,26 +52,58 @@
         	<td>
                 ${row.product_name}<br>
                 <form action="delete" method="POST">
+                	<input type="hidden" name='cart_id' value='${row.cart_id}'>
                		<button type="submit">삭제</button>
                 </form>
             </td>
             <td>
+            	
                 <img src="${path}/images/${row.product_url}" width="200px" height="150px">
             </td>
             <td>
-                 <fmt:formatNumber value="${row.product_price}" pattern="###,###,###" />
+                 <fmt:formatNumber value="${row.product_price}" pattern="###,###,###" /> 
+               	
             </td>
             <td>
-                ${row.amount}
+            <fmt:formatNumber value="${row.product_price * row.amount}" pattern="###,###,###" />
+            </td>
+            <td>
+            	
+                ${row.amount} 개
             </td>
             
           </tr>
           
           
-        
+       
         </c:forEach>
+        
+         <tr>
+        
+        <td colspan="6" style="background: green;height: 50px">
+         
+         전체 가격 합계 :
+         
+        </td>
+        </tr>
+        
+      
+       
+         
     </table>
-    
+    </div>
+     <br>
+     <br>
+     <br>
+     
+     	<form action="orderList?user_id=${login.id}" method="get">
+     	<input type="text" name="user_id" value='${login.id}'>
+        <div align="center">
+        
+        <input type="submit" value="주문하기" class="btn btn-primary" style="width:600px;height:50px;font-size:20px;">
+    	</div>
+    	</form>
+     
 
 
 </body>

@@ -28,5 +28,11 @@ where cart_id = #{cart_id}
 
 </delete>
 
+<!-- 주문 완료후 카트 삭제 -->
+<delete id="orderCart">
+delete from cart
+where user_id = #{user_id}
+</delete>
+
 
 </mapper>

@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.prinsmart.domain.CartVO;
+import kr.prinsmart.domain.UserVO;
 import kr.prinsmart.service.CartService;
 
 @Controller
@@ -29,7 +31,7 @@ public class CartController {
     CartService cartService;
 	
 	
-			// 1. 장바구니 추가
+			
 		    @RequestMapping(value= "insert.do", method = RequestMethod.POST)
 		    public String insert(@ModelAttribute CartVO vo, HttpSession session) throws Exception{
 		    	
@@ -56,11 +58,15 @@ public class CartController {
 		    	
 		    }
 		    @RequestMapping(value= "/delete", method = RequestMethod.POST)
-		    public String deleteCart(int cart_id) throws Exception {
+		    public String deleteCart(@RequestParam int cart_id, RedirectAttributes rttr, HttpSession session) throws Exception {
 		    		
+		    		UserVO vo = (UserVO) session.getAttribute("login");
+		    		
+		    		String user_id = vo.getId();
 		    		
 		    		cartService.deleteCart(cart_id);
-		    	
+		    		
+		    		rttr.addAttribute("user_id", user_id);
 		    	return "redirect:/listCart";
 		    }
 		    
