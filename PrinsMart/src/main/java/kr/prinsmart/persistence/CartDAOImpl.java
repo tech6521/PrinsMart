@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import kr.prinsmart.domain.CartVO;
+import kr.prinsmart.domain.OrderVO;
 
 @Repository
 public class CartDAOImpl implements CartDAO {
@@ -35,6 +36,13 @@ public class CartDAOImpl implements CartDAO {
 	@Override
 	public void deleteCart(int cart_id) throws Exception {
 		sqlSession.delete(namespace+".deleteCart", cart_id);
+		
+	}
+
+
+	@Override
+	public void insert(OrderVO vo) throws Exception {
+		sqlSession.insert(namespace+".order", vo);
 		
 	}
 

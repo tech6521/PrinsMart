@@ -41,7 +41,7 @@
         </tr>
         
         
-        
+        <%! int sum = 0; %>
         <c:forEach var="row" items="${list}">
         <tr>
         	<td>
@@ -66,6 +66,7 @@
             </td>
             <td>
             <fmt:formatNumber value="${row.product_price * row.amount}" pattern="###,###,###" />
+            <input type="hidden" value="${sum = sum + row.product_price * row.amount}">
             </td>
             <td>
             	
@@ -82,7 +83,7 @@
         
         <td colspan="6" style="background: green;height: 50px">
          
-         전체 가격 합계 :
+         전체 가격 합계 : <fmt:formatNumber value="${sum}" pattern="###,###,###" /> 원 입니다.
          
         </td>
         </tr>

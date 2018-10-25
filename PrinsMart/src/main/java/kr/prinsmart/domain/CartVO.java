@@ -1,6 +1,7 @@
 package kr.prinsmart.domain;
 
 public class CartVO {
+	
 	private Integer cart_id;
 	private String user_id;
 	private int amount;
@@ -8,8 +9,17 @@ public class CartVO {
 	private String product_url;
 	private int product_price;
 	private String product_name;
+	private int sum_price;
+	
+	
 
 
+	public int getSum_price() {
+		return sum_price;
+	}
+	public void setSum_price(int sum_price) {
+		this.sum_price = sum_price;
+	}
 	public String getProduct_name() {
 		return product_name;
 	}

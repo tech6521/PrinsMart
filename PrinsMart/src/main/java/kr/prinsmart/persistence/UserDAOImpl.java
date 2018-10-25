@@ -2,6 +2,8 @@ package kr.prinsmart.persistence;
 
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -37,6 +39,12 @@ public class UserDAOImpl implements UserDAO {
 	public UserVO login(LoginDTO dto) throws Exception {
 		
 		return session.selectOne(namespace + ".login", dto);
+	}
+
+	@Override
+	public UserVO selectUser(String user_id) throws Exception {
+		
+		return session.selectOne(namespace + ".selectUser", user_id);
 	}
 
 	
