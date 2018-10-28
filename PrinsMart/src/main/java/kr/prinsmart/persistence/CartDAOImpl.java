@@ -41,7 +41,7 @@ public class CartDAOImpl implements CartDAO {
 
 
 	@Override
-	public void insert(OrderVO vo) throws Exception {
+	public void order(OrderVO vo) throws Exception {
 		sqlSession.insert(namespace+".order", vo);
 		
 	}

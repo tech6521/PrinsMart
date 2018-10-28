@@ -13,6 +13,6 @@ public interface CartDAO {
 	
 	public void deleteCart(int cart_id) throws Exception;
 	
-	public void insert(OrderVO vo) throws Exception;
+	public void order(OrderVO vo) throws Exception;
 
 }

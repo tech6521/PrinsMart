@@ -47,6 +47,19 @@ public class UserDAOImpl implements UserDAO {
 		return session.selectOne(namespace + ".selectUser", user_id);
 	}
 
+	@Override
+	public UserVO updateUser(UserVO vo) throws Exception {
+		return session.selectOne(namespace + ".updateUser", vo);
+	}
+
+	
+
+	
+
+	
+
+	
+
 	
 
 	

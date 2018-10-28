@@ -29,29 +29,28 @@
 <br>
 <br>
 
-<form action="pay" method="post">
+<form action="/spay" method="post">
 <table class="table table-bordered" style="width: 1000px;font-size: 16px;">
 	
 	
 	
 		<tr>
 			<td scope="col">주문자</td>
-			<td><input type="text" name="ordername" value="${userVO.name}"></td>
+			<td><input type="text" name="user_id" value="${userVO.name}"></td>
 			<td scope="col">주문고객 휴대 전화번호</td>
-			<td><input type="text" name="orderphone" value="${userVO.phone}"></td>
+			<td><input type="text" name="user_phone" value="${userVO.phone}"></td>
 		</tr>
 		
 		<tr>
 			<td>배송받을 주소</td>
 			<td colspan="3">
-			<input type="text" name="address" size="80px" value="${userVO.address}"></td>
+			<input type="text" name="r_address" size="80px" value="${userVO.address}"></td>
 		</tr>
 		
 		<tr>
 			<td>받는분</td>
-			<td><input type="text" name="name" value="${userVO.name}"></td>
-			<td>받는분 휴대폰 전화번호</td>
-			<td><input type="text" name="setphone" value="${userVO.phone}"></td>
+			<td><input type="text" name="r_name" value="${userVO.name}"></td>
+			
 		</tr>
 		<tr>
 			<td>매장상품 배송 메세지</td>
@@ -70,7 +69,7 @@
 			</td>
 			
 			<td colspan="2">
-			<input type="text" name="name" value="직접입력"  size="40px"> 
+			<input type="text" name="" value="직접입력"  size="40px"> 
 			</td>
 			
 			
@@ -93,11 +92,21 @@
 	</tr>
 	 <c:forEach var="row" items="${list}">
 	<tr height="30px">
-		<td> ${row.product_name}</td>
+		
+		<td> ${row.product_name}
+		<input type="hidden" name="product_name" value="${row.product_name}">
+		</td>
 		<td width="230px"><img src="${path}/images/${row.product_url}" width="200px" height="80px" align="left"></td>
-		<td>${row.product_price}</td>
-		<td>${row.amount}</td>
+		<td>${row.product_price}
+		<input type="hidden" name="product_price" value="${row.product_price}">
+		</td>
+		
+		<td>${row.amount}
+		<input type="hidden" name="amount" value="${row.amount}">
+		</td>
+		
 		<td> ${row.product_price * row.amount} 
+			<input type="hidden" name="amount_price" value="${row.amount * row.product_price}">
 			<input type="hidden" value="${sum = sum + row.product_price * row.amount}">
 		</td>
 		<td>매장상품 배송 <br> (배송비 3,000원)</td>
@@ -108,6 +117,7 @@
 </table>
 
 <h3>전체 총 구매금액 : <fmt:formatNumber value="${sum}" pattern="###,###,###" /> 원 입니다.</h3> <br>
+<input type="hidden" name="all_price" value="${sum+3000}">
 
 <table class="table table-bordered" style="width: 1000px;font-size: 16px;">
 	<tr>
@@ -121,7 +131,13 @@
 		<td> <fmt:formatNumber value="${sum}" pattern="###,###,###" /> 원</td>
 		<td> 3,000 원 </td>
 		<td> <fmt:formatNumber value="${sum + 3000}" pattern="###,###,###" /> 원</td>
-		<td><input type="checkbox" value="money"> 현금 &nbsp; <input type="checkbox" value="card"> 카드</td>
+		
+		<td>
+		<select name="pay" style="width: 200px;" >
+		<option>현금</option>
+		<option>카드</option>
+		</select>
+		</td>
 	</tr>
 	
 	

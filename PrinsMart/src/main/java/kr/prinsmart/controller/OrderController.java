@@ -1,5 +1,7 @@
 package kr.prinsmart.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -27,8 +29,8 @@ private static final Logger logger = LoggerFactory.getLogger(CartController.clas
 	@Inject
 	UserService Service1;
 	
-	@RequestMapping("/orderList") // GET 방식으로 페이지 호출
-	public String orderList(@RequestParam("user_id") String user_id, Model model) throws Exception {
+	@RequestMapping("/orderList") 
+	public String orderList(@ModelAttribute OrderVO vo, @RequestParam("user_id") String user_id, Model model) throws Exception {
 		model.addAttribute("list", Service.listCart(user_id));
 		
 		model.addAttribute(Service1.selectUser(user_id));
@@ -39,15 +41,23 @@ private static final Logger logger = LoggerFactory.getLogger(CartController.clas
 		return "orderList";
 	}
 	
+	@RequestMapping(value = "/pay",method=RequestMethod.GET)
+	public void payGET(OrderVO vo, Model model) throws Exception {
+		logger.info("register get....");
+	}
 	
-	 	@RequestMapping(value= "pay", method = RequestMethod.POST)
-	    public String insert(@ModelAttribute OrderVO vo, HttpSession session) throws Exception{
+	
+	
+	 	@RequestMapping(value= "/spay", method = RequestMethod.POST)
+	    public String payPOST(@ModelAttribute OrderVO vo, HttpSession session) throws Exception{
 	    	
 	        
-	       
-	            Service.insert(vo);
+	 			logger.info(vo.toString());
+	            Service.order(vo);
+	            
+	 			
 	        
-	        return "redirect:/";
+	        return "redirect:/pay";
 	    }
 
 }

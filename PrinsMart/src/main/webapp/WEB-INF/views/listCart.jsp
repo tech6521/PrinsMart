@@ -66,7 +66,7 @@
             </td>
             <td>
             <fmt:formatNumber value="${row.product_price * row.amount}" pattern="###,###,###" />
-            <input type="hidden" value="${sum = sum + row.product_price * row.amount}">
+            <input type="hidden" name="sum_price" value="${sum = sum + row.product_price * row.amount}">
             </td>
             <td>
             	

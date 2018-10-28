@@ -16,6 +16,11 @@ public interface UserService {
 	
 	public UserVO selectUser(String user_id) throws Exception;
 	
+	public UserVO updateUser(UserVO vo) throws Exception;
+	
+	
+	
+	
 	
 
 	

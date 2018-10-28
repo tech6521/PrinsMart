@@ -36,6 +36,9 @@ where user_id = #{user_id}
 
 
 <!-- 주문 완료 후 삽입 -->
-
+<insert id="order">
+INSERT INTO oder (user_id, user_phone, r_address, r_name, message,product_name, product_price, amount, amount_price, all_price, pay)
+VALUES (#{user_id}, #{user_phone}, #{r_address}, #{r_name}, #{message},#{product_name}, #{product_price}, #{amount}, #{amount_price}, #{all_price}, #{pay})
+</insert>
 
 </mapper>

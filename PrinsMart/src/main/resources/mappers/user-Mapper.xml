@@ -23,7 +23,14 @@ values(#{id},#{password}, #{name},#{email},#{phone}, #{address})
 	
 </select>
 
+<update id="updateUser">
+	 update user set id =#{id}, password = #{password}, email = #{email}, address = #{address}, phone = #{phone} 
+	 where id = #{id}
+	</update>
 
+<delete id="deleteUser">
+	delete from user where id = #{id}
+</delete>
 
 
 

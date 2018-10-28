@@ -59,7 +59,7 @@
 </nav>
 
 
-<img src="http://placehold.it/250x50" class="logo">
+<a href="/"><img src="http://placehold.it/250x50" class="logo"></a>
 
 
 

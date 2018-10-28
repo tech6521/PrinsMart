@@ -38,6 +38,13 @@ public class UserServiceImpl implements UserService{
 		return dao.selectUser(user_id);
 	}
 
+	@Override
+	public UserVO updateUser(UserVO vo) throws Exception {
+		return dao.updateUser(vo);
+	}
+
+	
+
 	
 
 	

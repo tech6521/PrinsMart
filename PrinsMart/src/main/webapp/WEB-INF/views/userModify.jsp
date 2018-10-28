@@ -50,36 +50,13 @@ hr{
 	position:absolute;
 	right:0;
 	width: 70%;
-	height: 20%;
+	height: 80%;
 	background-color: #BDBDBD;
 	float:right;
 	margin-top: 5%;
 	margin-right: 10%;
 	margin-left: 20%;
 }
-
-.MyPageCenterBar {
-	position:absolute;
-	right:0;
-	width: 70%;
-	height: 20%;
-	background-color: #BDBDBD;
-	float:right;
-	margin-top: 25%;
-	margin-right: 10%;
-}
-
-.MyPagefooterBar{
-	position:absolute;
-	right:0;
-	width: 70%;
-	height: 20%;
-	background-color: #BDBDBD;
-	float:right;
-	margin-top: 50%;
-	margin-right: 10%;
-}
-
 
 .MyPageLeftBar-Title{
 	width:100%;
@@ -158,23 +135,52 @@ hr{
 	<hr>
 	<ul class="MyPageUL">
 		<li class="List-title">나의 정보</li>
-		<form action="MyUser" method="POST">
-		<input type="hidden" value="${vo.id}">
-		<input type="submit" value="회원정보변경">
-		</form>
-		
-		<form action="userOut" method="POST">
-		<input type="hidden" value="${vo.id}">
-		<input type="submit" value="회원탈퇴">
-		</form>
+		<li> <a href="">회원정보 변경</a></li>
+		<li> <a href="#">회원 탈퇴</a></li>
 		<li> <a href="#">개인정보 이용내역</a></li>
 	</ul>
 	
 </div>
-<div class="MyPageTopBar">dsa</div>
-<div class="MyPageCenterBar">dsa</div>
-<div class="MyPagefooterBar">dsa</div>
-<div></div>
+<div class="MyPageTopBar">
+	
+	<form role="form" method="post">
+	<table border="1" style="margin-left: 5%; margin-top: 20%;width: 1000px;height: 400px;font-size: 25px;text-align: center;">
+	<tr>
+	<th colspan="2" style="text-align: center;">회원 정보 변경</th>
+	</tr>
+	
+	<tr>
+	<td>아이디</td>
+	<td><input type="text" name="id" value="${vo.id}"> </td>
+	</tr>
+	
+	<tr>
+	<td>비밀번호</td>
+	<td><input type="text" name="password" value="${vo.password}"> <br></td>
+	</tr>
+	
+	<tr>
+	<td>이메일</td>
+	<td><input type="text" name="email" value="${vo.email}"> <br></td>
+	</tr>
+	
+	<tr>
+	<td>주소</td>
+	<td><input type="text" name="address" value="${vo.address}"> <br></td>
+	</tr>
+	
+	<tr>
+	<td>휴대폰</td>
+	<td><input type="text" name="phone" value="${vo.phone}"> <br></td>
+	</tr>	
+	<tr>
+	<td colspan="2"><button type="submit" class="btn btn-primary" style="width: 400px;">수정하기</button></td>
+	</tr>
+	</table>
+	</form>
+	
+</div>
+
 </div>
 </body>
 </html>

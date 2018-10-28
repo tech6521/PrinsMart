@@ -4,6 +4,9 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -14,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.prinsmart.domain.UserVO;
+import kr.prinsmart.service.UserService;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class HomeController {
+	
+	@Inject
+    UserService Service;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -52,7 +59,12 @@ public class HomeController {
 	
 	
 	@RequestMapping("/MyPage")
-	public String MyPage(@ModelAttribute UserVO user, Model model) throws Exception {		
+	public String MyPage(Model model,HttpSession session) throws Exception {
+		UserVO uservo  = (UserVO) session.getAttribute("login");
+		String user_id = uservo.getId();
+		UserVO vo = Service.selectUser(user_id);
+		model.addAttribute("vo", vo);
+		System.out.println(user_id);
 		return "MyPage";
 	}
 	

@@ -37,8 +37,8 @@ public class CartServiceImpl implements CartService{
 	}
 
 	@Override
-	public void insert(OrderVO vo) throws Exception {
-		dao.insert(vo);
+	public void order(OrderVO vo) throws Exception {
+		dao.order(vo);
 		
 	}
 
