@@ -29,15 +29,20 @@
    
 <form action="allProductList"> 
 <div class="container resizable" style="float:right;">
-<select style="width: 100px;height: 35px; text-align: center;">
-<option> 전체보기</option>
-<option>과자</option>
-<option>야채</option>
-<option>육류</option>
-<option>생활제품</option>
+<select name="searchType" style="width: 100px;height: 35px; text-align: center;">
+<option value="n"
+<c:out value="${cri.searchType == null?'selected':''}"/>> 전체보기</option>
+<option value="s"
+<c:out value="${cri.searchType eq 's'?'selected':''}"/>>과자</option>
+<option value="v"
+<c:out value="${cri.searchType eq 'v'?'selected':''}"/>>야채</option>
+<option value="m"
+<c:out value="${cri.searchType eq 'm'?'selected':''}"/>>육류</option>
+<option value="c"
+<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>생활제품</option>
 </select>
-<input type="text"  value='' placeholder="검색어를 입력하세요" style="width: 300px;height: 35px; text-align: center;">
-<button type="submit" class="btn btn-primary">검색</button>
+<input type="text"  name='keyword' value='${cri.keyword}' placeholder="검색어를 입력하세요" style="width: 300px;height: 35px; text-align: center;">
+<button type="submit" class="btn btn-primary" id="searchBtn">검색</button>
 </div>
 </form> 
 

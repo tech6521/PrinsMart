@@ -54,6 +54,16 @@ public class UserDAOImpl implements UserDAO {
 
 	
 
+	@Override
+	public UserVO deleteUser(String id) throws Exception {
+		
+		return session.selectOne(namespace + ".deleteUser", id);
+	}
+
+	
+
+	
+
 	
 
 	

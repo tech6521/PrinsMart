@@ -26,6 +26,17 @@ public class MyPageController {
 	@Inject
     UserService Service;
 	
+	@RequestMapping("/MyPage")
+	public String MyPage(Model model,HttpSession session) throws Exception {
+		UserVO uservo  = (UserVO) session.getAttribute("login");
+		String id = uservo.getId();
+		UserVO vo = Service.selectUser(id);
+		model.addAttribute("vo", vo);
+		System.out.println(id);
+		return "MyPage";
+	}
+	
+	
 	
 	@RequestMapping(value = "/MyUser",method=RequestMethod.GET)
 	public void MyUserGET(Model model) throws Exception {
@@ -72,12 +83,16 @@ public class MyPageController {
 	
 	
 	@RequestMapping(value = "/userOut",method=RequestMethod.POST)
-	public String userOutPOST(Model model, HttpSession session) throws Exception {
-		logger.info("userOut post....");
+	public String userOutPOST(UserVO vo, Model model, HttpSession session) throws Exception {
+		
+		
+		
 		UserVO uservo  = (UserVO) session.getAttribute("login");
 		String id = uservo.getId();
+		Service.deleteUser(id);
 		
-	
+		model.addAttribute("vo" , id);
+		
 		
 		return "redirect:/";
 	}

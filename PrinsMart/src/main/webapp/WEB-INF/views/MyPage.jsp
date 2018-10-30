@@ -11,111 +11,19 @@
 <head>
 <title>Prins Mall 마이페이지</title>
 <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="/resources/cs1/MyPage.css">
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>	
-<style>
-hr{
-	border:2px solid dashed;
-}
-
-.MyPageLine{
-	position:relative;
-	border: 1px solid red;
-}
-
-
-.MyPage{
-	position:relative;
-	width: 100%;
-	height: 1024px;
-	background-color: #424242;
-	margin: 0;
-	padding: 0;
-}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
 
 
-.MyPageLeftBar {
-	position:absolute;
-	margin-left: 2%;
-	margin-top: 5%;
-	
-	width: 200px;
-	height: 90%;
-	background-color: #BDBDBD;
-}
-
-.MyPageTopBar {
-	position:absolute;
-	right:0;
-	width: 70%;
-	height: 20%;
-	background-color: #BDBDBD;
-	float:right;
-	margin-top: 5%;
-	margin-right: 10%;
-	margin-left: 20%;
-}
-
-.MyPageCenterBar {
-	position:absolute;
-	right:0;
-	width: 70%;
-	height: 20%;
-	background-color: #BDBDBD;
-	float:right;
-	margin-top: 25%;
-	margin-right: 10%;
-}
-
-.MyPagefooterBar{
-	position:absolute;
-	right:0;
-	width: 70%;
-	height: 20%;
-	background-color: #BDBDBD;
-	float:right;
-	margin-top: 50%;
-	margin-right: 10%;
-}
-
-
-.MyPageLeftBar-Title{
-	width:100%;
-	height: 50px;
-	background: white;
-	text-align:center;
-	line-height:50px;
-	font-size:17px;
-	font-weight: bold;
-	
-}
 
 
 
-.MyPageUL li {
-	list-style: none;
-	font-size:15px;
-	margin: 2px;
-	padding: 0.5px;
-	width: 100%;
-	padding: 4px;
-}
-
-.MyPageUL li a {
-	color:#fff; font-weight:bold; display:block; text-decoration: none;
-}
-
-.MyPageUL li a:hover{ background:#666;}
-
-.List-title{
-	font-size:20px;
-	font-weight: bold;
-}
-
-
-</style>
 </head>
 <body>
 <%@include file="include/header.jsp" %>
@@ -158,23 +66,75 @@ hr{
 	<hr>
 	<ul class="MyPageUL">
 		<li class="List-title">나의 정보</li>
-		<form action="MyUser" method="POST">
+		<li><form action="MyUser" method="POST">
 		<input type="hidden" value="${vo.id}">
-		<input type="submit" value="회원정보변경">
+		<input type="submit" class = "btn btn-info" value="회원정보변경">
 		</form>
+		</li>
 		
-		<form action="userOut" method="POST">
-		<input type="hidden" value="${vo.id}">
-		<input type="submit" value="회원탈퇴">
-		</form>
+		
 		<li> <a href="#">개인정보 이용내역</a></li>
 	</ul>
 	
 </div>
-<div class="MyPageTopBar">dsa</div>
-<div class="MyPageCenterBar">dsa</div>
-<div class="MyPagefooterBar">dsa</div>
-<div></div>
+
+
+<div class="MyPageTopBar">
+<table>
+<tr>
+<th>이름</th>
+<th></th>
+</tr>
+
+</table>
+
+
+
+<canvas id="myChart" width="100%" height="50%">
+
+</canvas>
+
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["방문 수", "하루 방문 수", "구매휫수"],
+        datasets: [{
+            label: '${vo.id}님의 차트',
+            data: ['${vo.visit}', 19, 3],
+            backgroundColor: [
+                'rgba(255, 120, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+                
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)'
+            ],
+            borderWidth: 2
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
 </div>
+
+
+</div>
+
+
+
 </body>
 </html>

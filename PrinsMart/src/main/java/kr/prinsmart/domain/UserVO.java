@@ -9,6 +9,17 @@ public class UserVO {
 	private String email;
 	private String phone;
 	private String address;
+	private String visit;
+	
+	
+	
+	
+	public String getVisit() {
+		return visit;
+	}
+	public void setVisit(String visit) {
+		this.visit = visit;
+	}
 	public Integer getIdx() {
 		return idx;
 	}

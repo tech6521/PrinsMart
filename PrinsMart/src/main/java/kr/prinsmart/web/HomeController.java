@@ -58,15 +58,7 @@ public class HomeController {
 	
 	
 	
-	@RequestMapping("/MyPage")
-	public String MyPage(Model model,HttpSession session) throws Exception {
-		UserVO uservo  = (UserVO) session.getAttribute("login");
-		String user_id = uservo.getId();
-		UserVO vo = Service.selectUser(user_id);
-		model.addAttribute("vo", vo);
-		System.out.println(user_id);
-		return "MyPage";
-	}
+	
 	
 	@RequestMapping("/ServiceCenter")
 	public String ServiceCenter(@ModelAttribute UserVO user, Model model) throws Exception {		
