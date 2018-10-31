@@ -4,8 +4,57 @@
 <mapper namespace="kr.prinsmart.mapper.BoardMapper">
 
 <insert id="create">
-
+insert into board (title, content, writer)
+values( #{title}, #{content}, #{writer} )
 </insert>
+
+<select id="read" resultType="kr.prinsmart.domain.BoardVO">
+	 select 
+	   bno, title, content, writer, regdate, viewcnt 
+	 from 
+	   board 
+	 where bno = #{bno}
+	</select>
+	
+	<update id="update">
+	 update board set title = #{title}, content = #{content}
+	 where bno = #{bno}
+	</update>
+	
+	<delete id="delete">
+	 delete from board where bno = #{bno}
+	</delete>
+   
+	<!--
+		...208p. 
+		CDATA : XML 부등호 처리. 
+		http://cafe.naver.com/gugucoding/1457
+	-->       
+	 <select id="listAll" resultType="kr.prinsmart.domain.BoardVO">
+		 <![CDATA[
+		 select 
+		   bno, title, content, writer, regdate, viewcnt 
+		 from 
+		   board 
+		 where bno > 0 
+		 order by bno desc, regdate desc
+		 ]]>  
+	 </select> 
+	 
+	 <select id="listPage" resultType="kr.prinsmart.domain.BoardVO">
+	 <![CDATA[
+		 select 
+		   bno, title, content, writer, regdate, viewcnt 
+		 from 
+		   board 
+		 where bno > 0 
+		 order by bno desc, regdate desc
+		 limit #{page}, 10
+		 ]]>  
+	 
+	 </select>
+
+
 
 
 </mapper>

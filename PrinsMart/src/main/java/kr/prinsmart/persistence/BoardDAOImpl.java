@@ -23,29 +23,40 @@ public class BoardDAOImpl implements BoardDAO {
 		session.insert(namespace+".create", vo);
 		
 	}
-
+	
 	@Override
-	public void read(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		
+	public BoardVO read(Integer bno) throws Exception {
+		return session.selectOne(namespace + ".read", bno);
 	}
-
-	@Override
+ 	@Override
 	public void update(BoardVO vo) throws Exception {
-		// TODO Auto-generated method stub
-		
+	    session.update(namespace + ".update", vo);
 	}
-
-	@Override
+ 	@Override
 	public void delete(Integer bno) throws Exception {
-		// TODO Auto-generated method stub
-		
+	    session.delete(namespace + ".delete", bno);
+	}
+ 	@Override
+	public List<BoardVO> selectAll() throws Exception {
+	    return session.selectList(namespace + ".listAll");
 	}
 
 	@Override
-	public List<BoardVO> listAll() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BoardVO> listPage(int page) throws Exception {
+		
+		if (page <= 0) { 
+			page = 1;
+		}
+		
+		page = (page - 1) * 10;
+		
+		return session.selectList(namespace + ".listPage", page);
 	}
+	
+	
+
+
+
+	
 
 }

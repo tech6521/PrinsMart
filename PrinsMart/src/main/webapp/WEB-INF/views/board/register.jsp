@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -19,7 +19,7 @@
 			<!-- general form elements -->
  			<div class="box">
 				<div class="box-header with-border">
-					<h3 class="box-title">create Posting Page</h3>
+					<h3 class="box-title">글 쓰기</h3>
 				</div>
 				<!-- /.box-header -->
  				<!-- 202p. form::action 속성이 지정되지 않으면 현재 경로를 그대로 action의 대상 경로로 잡음. -->
@@ -38,7 +38,7 @@
 						<div class="form-group">
 							<label for="exampleInputEmail1">Writer</label> 
 							<input type="text"
-								name="writer" class="form-control" placeholder="Enter Writer">
+								 name="writer" class="form-control" placeholder="Enter Writer">
 						</div>
 					</div>
 					<!-- /.box-body -->
@@ -56,4 +56,7 @@
 	<!-- /.row -->
 </section>
 <!-- /.content -->
+<br>
+<br>
+<br>
  <%@include file="../include/footer.jsp"%> 
