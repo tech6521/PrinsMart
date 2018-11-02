@@ -28,6 +28,34 @@
 
     </select>
     
+<select id="searchProduct" resultType="int">
+<![CDATA[  
+		  select *
+		  from product 
+		  where product_id > 0
+		]]>
+		<include refid="search"></include>
+
+</select>
+ 
+ <sql id="search">
+	 <if test="searchType != null" > 
+	   <if test="searchType == 't'.toString()">
+	     and category_id = 1 and product_name like CONCAT('%', #{keyword}, '%')
+	   </if>
+	   <if test="searchType == 'c'.toString()">
+	     and category_id = 2 and product_name like CONCAT('%', #{keyword}, '%')
+	   </if>
+	   <if test="searchType == 'w'.toString()">
+	     and category_id = 3 and product_name like CONCAT('%', #{keyword}, '%')
+	   </if>     
+	   <if test="searchType == 'tc'.toString()">
+	     and ( title like CONCAT('%', #{keyword}, '%') 
+	     OR category_id = 4 and product_name like CONCAT('%', #{keyword}, '%'))
+	   </if>        
+	    
+	 </if>  
+	</sql>
 
 
 </mapper>

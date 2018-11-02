@@ -26,7 +26,11 @@
 					...202p참조. form::action 속성이 지정되지 않으면 
 					현재 경로를 그대로 action의 대상 경로로 잡음. 
 				-->
-				<form role="form" method="post">
+				<form role="form" action="modifyPage" method="post">
+				
+					<!-- 299p. 페이징 처리에 대한 정보를 유지하도록 hidden 사용. -->
+					<input type='hidden' name='page' value="${cri.page}"> 
+					<input type='hidden' name='perPageNum' value="${cri.perPageNum}">
  					<div class="box-body">
  						<div class="form-group">
 							<label for="exampleInputEmail1">BNO</label> <input type="text"
@@ -58,12 +62,15 @@
 					$(".btn-warning")이벤트 처리는 지정한 페이지로 이동하도록 <form>태그 속성을
 					수정하고 전송하게 함. 
 				 -->
+				 
+				 
+				 
 				<script>
 					$(document).ready(function() {
 						var formObj = $("form[role='form']");
 						console.log(formObj);
 						$(".btn-warning").on("click", function() {
-							self.location = "/board/listAll";
+							self.location = "/board/listPage?page=${cri.page}&perPageNum=${cri.perPageNum}";
 						});
 						$(".btn-primary").on("click", function() {
 							formObj.submit();

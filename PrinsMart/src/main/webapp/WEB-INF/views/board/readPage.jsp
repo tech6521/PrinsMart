@@ -52,10 +52,17 @@
 				<!-- /.box-body -->
 				
 				<div class="box-footer">
-					<button type="submit" class="btn btn-warning">Modify</button>
-					<button type="submit" class="btn btn-danger">REMOVE</button>
-					<button type="submit" class="btn btn-primary">LIST ALL</button>
+					<button type="submit" class="btn btn-warning modifyBtn">Modify</button>
+					<button type="submit" class="btn btn-danger removeBtn">REMOVE</button>
+					<button type="submit" class="btn btn-primary goListBtn">GO LIST</button>
 				</div>
+				
+				<form role="form" action="modifyPage" method="post">
+					<input type="hidden" name='bno' value="${boardVO.bno}">
+					<input type="hidden" name='page' value="${cri.page}">
+					<input type="hidden" name='perpageNum' value="${cri.perPageNum}">
+				</form>
+				
 				<!-- /.box-footer-->
 				<!-- 
 					...222p.$("form[role='form']")로 선언된 formObj는 <form>태그를 의미함.
@@ -72,19 +79,25 @@
 						console.log('formObj: ', formObj);
 						
 						$(".btn-warning").on("click", function(){
-							formObj.attr("action", "/board/modify");
+							formObj.attr("action", "/board/modifyPage");
 							formObj.attr("method", "get");		
 							formObj.submit();
 						});
 						
 						$(".btn-danger").on("click", function(){
-							formObj.attr("action", "/board/remove");
+							formObj.attr("action", "/board/removePage");
 							formObj.submit();
 						});
 						
 						$(".btn-primary").on("click", function(){
-							self.location = "/board/listAll";
+							
+							
+							formObj.attr("method", "get");
+							formObj.attr("action", "/sboard/list");
+							formObj.submit();	
 						});
+						
+						
 						
 					});
 				</script>
@@ -102,7 +115,7 @@
  <script>    
     var result = '${msg}';
     
-    if(result == 'SUCCESS'){
+    if(result == 'success'){
     	alert("처리가 완료되었습니다.");
     }    
 </script>
