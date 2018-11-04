@@ -10,9 +10,27 @@ public class ProductVO {
 	private String product_url;
 	private int category_id;
 	
+	private String searchType;
+	private String keyword;
 	
 	
 	
+	
+	
+	
+	
+	public String getSearchType() {
+		return searchType;
+	}
+	public void setSearchType(String searchType) {
+		this.searchType = searchType;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getCategory_id() {
 		return category_id;
 	}
@@ -53,8 +71,9 @@ public class ProductVO {
 	public String toString() {
 		return "ProductVO [product_id=" + product_id + ", product_name=" + product_name + ", product_price="
 				+ product_price + ", product_desc=" + product_desc + ", product_url=" + product_url + ", category_id="
-				+ category_id + "]";
+				+ category_id + ", searchType=" + searchType + ", keyword=" + keyword + "]";
 	}
+	
 	
 	
 	

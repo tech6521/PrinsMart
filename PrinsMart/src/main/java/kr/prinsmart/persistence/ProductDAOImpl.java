@@ -6,13 +6,17 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
+
+import kr.prinsmart.domain.BoardVO;
 import kr.prinsmart.domain.ProductVO;
+import kr.prinsmart.domain.SearchCriteria;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO{
 	
 	@Inject
 	SqlSession sqlSession;
+	
 	
 	private static String namespace = "kr.prinsmart.mapper.ProductMapper";
 	
@@ -31,6 +35,12 @@ public class ProductDAOImpl implements ProductDAO{
 	public List<ProductVO> selectProduct(int category_id) throws Exception {
 		
 		return sqlSession.selectList(namespace+".selectProduct", category_id);
+	}
+
+	@Override
+	public List<ProductVO> searchProduct(ProductVO cri) throws Exception {
+		
+		return sqlSession.selectList(namespace + ".searchProduct", cri);
 	}
 	
 }

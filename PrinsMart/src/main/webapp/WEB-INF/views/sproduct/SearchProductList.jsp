@@ -32,8 +32,8 @@ p {
 
 </head>
 <body>
-	<p>홈 > <b>상품 전체 목록</b></p>
-    <h2 align="center">상품 전체목록</h2>
+	<p>홈 > <b>상품 목록</b></p>
+    <h2 align="center">상품 목록</h2>
     <br>
     <br>
     <div>
