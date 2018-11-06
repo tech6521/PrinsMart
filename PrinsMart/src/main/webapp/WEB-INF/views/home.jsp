@@ -33,13 +33,13 @@
 <option value="n"
 <c:out value="${cri.searchType == null?'selected':''}"/>> 전체보기</option>
 <option value="t"
-<c:out value="${cri.searchType eq 's'?'selected':''}"/>>과자</option>
+<c:out value="${cri.searchType eq 's'?'selected':''}"/>>과일</option>
 <option value="c"
-<c:out value="${cri.searchType eq 'v'?'selected':''}"/>>야채</option>
+<c:out value="${cri.searchType eq 'v'?'selected':''}"/>>채소</option>
 <option value="w"
-<c:out value="${cri.searchType eq 'm'?'selected':''}"/>>육류</option>
+<c:out value="${cri.searchType eq 'm'?'selected':''}"/>>과자/음료수</option>
 <option value="a"
-<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>생활제품</option>
+<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>주방용품</option>
 </select>
 <input type="text"  name='keyword' value='${cri.keyword}' placeholder="검색어를 입력하세요" style="width: 300px;height: 35px; text-align: center;">
 <button type="submit" class="btn btn-primary" id="searchBtn">검색</button>

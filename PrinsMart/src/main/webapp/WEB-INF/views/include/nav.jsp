@@ -52,7 +52,7 @@
             <li><a href="#about">인기상품</a></li>
             <li><a href="#contact">스피드장보기</a></li>
             <li><a href="../navbar/">이벤트&쿠폰</a></li>
-            <li><a href="board/listAll/">커뮤니티</a></li>
+            <li><a href="sboard/list/">커뮤니티</a></li>
          </ul>
           
         </div><!--/.nav-collapse -->

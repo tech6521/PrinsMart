@@ -33,12 +33,12 @@ public class CartController {
 	
 			
 		    @RequestMapping(value= "insert.do", method = RequestMethod.POST)
-		    public String insert(@ModelAttribute CartVO vo, HttpSession session) throws Exception{
+		    public String insert(@ModelAttribute CartVO vo) throws Exception{
 		    	
 		        
-		       
+		    		
 		            cartService.insert(vo);
-		        
+		           
 		        return "redirect:/";
 		    }
 		    

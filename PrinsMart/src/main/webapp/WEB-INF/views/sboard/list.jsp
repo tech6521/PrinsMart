@@ -172,7 +172,16 @@
     
     if(result == 'success'){
     	alert("처리가 완료되었습니다.");
-    }    
+    }  
+    
+	$(document).ready(function() {
+		var formObj = $("form[role='form']");
+		console.log(formObj);
+		$(".btn-info").on("click", function() {
+			self.location = "/board/register";
+		});
+	});
+
 </script>
  <script>    
     $(".pagination li a").on("click", function(event){

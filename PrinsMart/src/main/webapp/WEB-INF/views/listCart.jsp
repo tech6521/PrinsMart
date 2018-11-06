@@ -52,8 +52,9 @@
         	<td>
                 ${row.product_name}<br>
                 <form action="delete" method="POST">
-                	<input type="hidden" name='cart_id' value='${row.cart_id}'>
-               		<button type="submit">삭제</button>
+                	<input type="hidden" name='cart_id' value='${row.cart_id}'> 
+                	<button type="submit">-</button>
+               		
                 </form>
             </td>
             <td>
@@ -98,7 +99,7 @@
      <br>
      
      	<form action="orderList?user_id=${login.id}" method="get">
-     	<input type="text" name="user_id" value='${login.id}'>
+     	<input type="hidden" name="user_id" value='${login.id}'>
         <div align="center">
         
         <input type="submit" value="주문하기" class="btn btn-primary" style="width:600px;height:50px;font-size:20px;">

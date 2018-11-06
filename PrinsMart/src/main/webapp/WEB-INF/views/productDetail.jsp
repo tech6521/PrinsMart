@@ -30,14 +30,16 @@ function button_click() {
 	
 	
 	
-    <h2>상품 상세정보</h2>
-    <table border="1">
+    <h2 align="center">상품 상세정보</h2>
+    <br><br>
+    <div align="center">
+    <table  border="1">
         <tr>
             <td>
                 <img src="${path}/images/${detail.product_url}" width="340" height="300">
             </td>
             <td>
-                <table border="1" style="height: 300px; width: 400px;">
+                <table border="1" style="height: 300px; width: 400px;" >
                     <tr align="center">
                         <td>상품명</td>
                         <td>${detail.product_name}</td>
@@ -54,10 +56,11 @@ function button_click() {
                         <td colspan="2">
                             <form name="form1" method="post" action="${path}/insert.do">
                             	<input type="hidden" name="cart_id" value='2'>
-                            	<input type="text" name="user_id" value='${login.id}'>
-                            	 <input type="text" name="product_name" value="${detail.product_name}">
-                            	  <input type="text" name="product_url" value="${detail.product_url}">
-                            	   <input type="text" name="product_price" value="${detail.product_price}">
+                            	<input type="hidden" name="user_id" value='${login.id}'>
+                            	 <input type="hidden" name="product_name" value="${detail.product_name}">
+                            	  <input type="hidden" name="product_url" value="${detail.product_url}">
+                            	   <input type="hidden" name="product_price" value="${detail.product_price}">
+                            	   
                             	
                             	
                                
@@ -72,8 +75,10 @@ function button_click() {
                         </td>
                     </tr>
                 </table>
+                
             </td>
         </tr>
     </table>
+    </div>
 </body>
 </html>
